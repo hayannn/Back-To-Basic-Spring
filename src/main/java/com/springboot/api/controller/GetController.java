@@ -1,6 +1,7 @@
 package com.springboot.api.controller;
 
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,9 +10,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/get-api")
 public class GetController {
 
-    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    /*@RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String getHello() {
         return "Hello World";
+    }*/
+
+    //매개 변수가 없는 GET 메서드 구현
+    @GetMapping(value = "/name")
+    public String getName(){
+        return "Flature";
     }
 }
 
