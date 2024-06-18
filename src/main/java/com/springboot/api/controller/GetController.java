@@ -4,6 +4,8 @@ package com.springboot.api.controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.annotation.RequestScope;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("/api/v1/get-api")
 public class GetController {
@@ -34,12 +36,23 @@ public class GetController {
     }
      */
 
-    //@RequestParam을 활용한 GET 메서드 구현
+    /*@RequestParam을 활용한 GET 메서드 구현
     @GetMapping(value = "/request1")
     public String getRequestParam1(
             @RequestParam String name,
             @RequestParam String email,
             @RequestParam String organization) {
         return name + " " + email + " " + organization;
+    }
+     */
+
+    //@RequestParam과 Map을 조합한 GET 메서드 구현
+    @GetMapping(value = "request2")
+    public String getRequestParam2(@RequestParam Map<String, String> param) {
+        StringBuilder sb = new StringBuilder();
+        param.entrySet().forEach(map -> {
+            sb.append(map.getKey() + " : " + map.getValue() + "\n");
+        });
+        return sb.toString();
     }
 }
