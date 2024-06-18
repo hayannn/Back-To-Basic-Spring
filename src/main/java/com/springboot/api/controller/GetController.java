@@ -2,6 +2,7 @@ package com.springboot.api.controller;
 
 
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.annotation.RequestScope;
 
 @RestController
 @RequestMapping("/api/v1/get-api")
@@ -26,9 +27,19 @@ public class GetController {
     }
      */
 
-    // @PathVariable에 변수명을 매핑하는 방법
+    /* @PathVariable에 변수명을 매핑하는 방법
     @GetMapping(value = "/variable2/{variable}")
     public String getVariable2(@PathVariable("variable") String var){
         return var;
+    }
+     */
+
+    //@RequestParam을 활용한 GET 메서드 구현
+    @GetMapping(value = "/request1")
+    public String getRequestParam1(
+            @RequestParam String name,
+            @RequestParam String email,
+            @RequestParam String organization) {
+        return name + " " + email + " " + organization;
     }
 }
