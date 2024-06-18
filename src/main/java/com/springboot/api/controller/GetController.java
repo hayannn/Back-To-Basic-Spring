@@ -1,6 +1,7 @@
 package com.springboot.api.controller;
 
 
+import com.springboot.api.dto.MemberDTO;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.annotation.RequestScope;
 
@@ -50,5 +51,11 @@ public class GetController {
             sb.append(map.getKey() + " : " + map.getValue() + "\n");
         });
         return sb.toString();
+    }
+
+    // DTO 객체를 활용한 GET 메서드 구현
+    @GetMapping(value = "request3")
+    public String getRequestParam3(MemberDTO memberDTO) {
+        return memberDTO.toString();
     }
 }
