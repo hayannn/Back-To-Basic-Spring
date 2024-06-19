@@ -4,6 +4,8 @@ package com.springboot.api.controller;
 import com.springboot.api.dto.MemberDTO;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.annotation.RequestScope;
 
@@ -12,6 +14,9 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/v1/get-api")
 public class GetController {
+
+    //Logback 적용하기
+    private final Logger LOGGER = LoggerFactory.getLogger(GetController.class);
 
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String getHello() {
