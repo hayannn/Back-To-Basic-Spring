@@ -28,6 +28,5 @@ public class PostController {
                 }
         );
         return sb.toString();
-
     }
 }
