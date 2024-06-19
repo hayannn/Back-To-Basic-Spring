@@ -20,12 +20,14 @@ public class GetController {
 
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String getHello() {
+        LOGGER.info("getHello 메서드가 호출되었습니다.");
         return "Hello World";
     }
 
     // 매개 변수가 없는 GET 메서드 구현
     @GetMapping(value = "/name")
     public String getName(){
+        LOGGER.info("getName 메서드가 호출되었습니다.");
         return "Flature";
     }
 
