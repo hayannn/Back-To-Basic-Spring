@@ -34,6 +34,7 @@ public class GetController {
     // @PathVariable을 활용한 GET 메서드 구현 -> {String 값}
     @GetMapping(value = "/variable1/{variable}")
     public String getVariable1(@PathVariable String variable){
+        LOGGER.info("@PathVariable을 통해 들어온 값 : {}", variable);
         return variable;
     }
 
