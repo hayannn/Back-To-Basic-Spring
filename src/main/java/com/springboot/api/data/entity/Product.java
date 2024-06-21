@@ -1,9 +1,17 @@
 package com.springboot.api.data.entity;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
+@ToString(exclude = "name")
 @Table(name = "product")
 public class Product {
 
