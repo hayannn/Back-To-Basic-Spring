@@ -16,14 +16,18 @@ public class ProductDAOImpl implements ProductDAO {
         this.productRepository = productRepository;
     }
 
+    //Product 엔티티를 데이터베이스에 저장하는 기능 수행
     @Override
     public Product insertProduct(Product product){
-        return null;
+        Product savedProduct = productRepository.save(product);
+        return savedProduct;
     }
 
+    //조회
     @Override
     public Product selectProduct(Long number){
-        return null;
+        Product selectProduct = productRepository.getById(number);
+        return selectProduct;
     }
 
     @Override
