@@ -5,7 +5,6 @@ import com.springboot.api.data.dto.ProductDTO;
 import com.springboot.api.data.dto.ProductResponseDTO;
 import com.springboot.api.data.entity.Product;
 import com.springboot.api.service.ProductService;
-import org.apache.catalina.authenticator.SavedRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,13 +24,7 @@ public class ProductServiceImpl implements ProductService {
     public ProductResponseDTO getProduct(Long number){
         Product product = productDAO.selectProduct(number);
 
-        ProductResponseDTO productResponseDto = new ProductResponseDTO();
-        productResponseDto.setNumber(product.getNumber());
-        productResponseDto.setName(product.getName());
-        productResponseDto.setPrice(product.getPrice());
-        productResponseDto.setStock(product.getStock());
-
-        return productResponseDto;
+        return new ProductResponseDTO(product.getNumber(), product.getName(), product.getPrice(), product.getStock());
     }
 
     @Override
@@ -45,26 +38,14 @@ public class ProductServiceImpl implements ProductService {
 
         Product savedProduct = productDAO.insertProduct(product);
 
-        productResponseDTO.setNumber(SavedRequest.getNumber());
-        productResponseDTO.setName(SavedRequest.getName());
-        productResponseDTO.setPrice(SavedRequest.getPrice());
-        productResponseDTO.setStock(SavedRequest.getStock());
-
-        return productResponseDTO;
+        return new ProductResponseDTO(savedProduct.getNumber(), savedProduct.getName(), savedProduct.getPrice(), savedProduct.getStock());
     }
 
     @Override
     public ProductResponseDTO changeProductName(Long number, String name) throws Exception {
         Product changedProduct = productDAO.updateProductName(number, name);
 
-        ProductResponseDTO productResponseDTO = new ProductResponseDTO();
-
-        productResponseDTO.setNumber(SavedRequest.getNumber());
-        productResponseDTO.setName(SavedRequest.getName());
-        productResponseDTO.setPrice(SavedRequest.getPrice());
-        productResponseDTO.setStock(SavedRequest.getStock());
-
-
+        return new ProductResponseDTO(changedProduct.getNumber(), changedProduct.getName(), changedProduct.getPrice(), changedProduct.getStock());
     }
 
     @Override

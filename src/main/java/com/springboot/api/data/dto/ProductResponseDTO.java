@@ -7,6 +7,7 @@ public class ProductResponseDTO {
     private int price;
     private int stock;
 
+
     public ProductResponseDTO(Long number, String name, int price, int stock){
         this.number = number;
         this.name = name;
@@ -42,7 +43,7 @@ public class ProductResponseDTO {
         return stock;
     }
 
-    public void setStock(int stock){
+    public void setStock(int stock) {
         this.stock = stock;
     }
 }
