@@ -5,6 +5,7 @@ import com.springboot.api.data.dto.ProductDTO;
 import com.springboot.api.data.dto.ProductResponseDTO;
 import com.springboot.api.data.entity.Product;
 import com.springboot.api.service.ProductService;
+import org.apache.catalina.authenticator.SavedRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,12 +43,19 @@ public class ProductServiceImpl implements ProductService {
         product.setCreatedAt(LocalDateTime.now());
         product.setUpdatedAt(LocalDateTime.now());
 
+        Product savedProduct = productDAO.insertProduct(product);
+
+        productResponseDTO.setNumber(SavedRequest.getNumber());
+        productResponseDTO.setName(SavedRequest.getName());
+        productResponseDTO.setPrice(SavedRequest.getPrice());
+        productResponseDTO.setStock(SavedRequest.getStock());
+
         return productResponseDTO;
     }
 
     @Override
     public ProductResponseDTO changeProductName(Long number, String name) throws Exception {
-
+        ProductResponseDTO productResponseDTO = new ProductResponseDTO()
     }
 
     @Override
