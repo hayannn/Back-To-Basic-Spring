@@ -1,5 +1,6 @@
 package com.springboot.api.controller;
 
+import com.springboot.api.data.dto.ChangeProductNameDTO;
 import com.springboot.api.data.dto.ProductDTO;
 import com.springboot.api.data.dto.ProductResponseDTO;
 import com.springboot.api.data.repository.ProductRepository;
@@ -27,7 +28,7 @@ public class ProductController {
     }
 
     @PostMapping()
-    public ResponseEntity<ProductResponseDTO> createProduct(@ResponseBody ProductDTO productDTO){
+    public ResponseEntity<ProductResponseDTO> createProduct(@RequestBody ProductDTO productDTO){
         ProductResponseDTO productResponseDTO = productService.saveProduct(productDTO);
 
         return ResponseEntity.status(HttpStatus.OK).body(productResponseDTO);
