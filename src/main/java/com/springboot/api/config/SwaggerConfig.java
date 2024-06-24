@@ -20,7 +20,7 @@ public class SwaggerConfig {
                 .groupName("groupName1")
                 .select()
                 .apis(RequestHandlerSelectors.
-                        basePackage("com.springboot.jpa"))
+                        basePackage("com.springboot.api"))
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(apiInfo());
