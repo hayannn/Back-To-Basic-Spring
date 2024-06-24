@@ -55,7 +55,16 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductResponseDTO changeProductName(Long number, String name) throws Exception {
-        ProductResponseDTO productResponseDTO = new ProductResponseDTO()
+        Product changedProduct = productDAO.updateProductName(number, name);
+
+        ProductResponseDTO productResponseDTO = new ProductResponseDTO();
+
+        productResponseDTO.setNumber(SavedRequest.getNumber());
+        productResponseDTO.setName(SavedRequest.getName());
+        productResponseDTO.setPrice(SavedRequest.getPrice());
+        productResponseDTO.setStock(SavedRequest.getStock());
+
+
     }
 
     @Override
