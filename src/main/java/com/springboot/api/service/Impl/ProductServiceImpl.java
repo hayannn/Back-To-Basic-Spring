@@ -35,7 +35,14 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductResponseDTO saveProduct(ProductDTO productDTO){
+        Product product = new Product();
+        product.setName(productDTO.getName());
+        product.setPrice(productDTO.getPrice());
+        product.setStock(productDTO.getStock());
+        product.setCreatedAt(LocalDateTime.now());
+        product.setUpdatedAt(LocalDateTime.now());
 
+        return productResponseDTO;
     }
 
     @Override
