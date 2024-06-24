@@ -44,7 +44,7 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.OK).body(productResponseDTO);
     }
 
-    @DeleteMapping()
+    @DeleteMapping(produces = "text/plain;charset=UTF-8")
     public ResponseEntity<String> deleteProduct(Long number) throws Exception {
         productService.deleteProduct(number);
 
